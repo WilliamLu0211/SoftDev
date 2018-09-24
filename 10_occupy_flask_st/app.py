@@ -1,3 +1,8 @@
+# Team Johalapenoccupations -- Puneet Johal, William Lu
+# SoftDev1 pd7
+# K10 -- Jinja Tuning
+# 2018-09-24
+
 from flask import Flask, render_template
 import csv, random
 
