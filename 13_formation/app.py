@@ -20,5 +20,6 @@ def authenticate():
                            greet = "Hello, " + request.args['username'] + "!",
                            method = "request.args")
 
-app.debug = True
-app.run()
+if __name__ == "__main__":
+    app.debug = True
+    app.run()
