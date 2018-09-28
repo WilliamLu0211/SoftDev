@@ -13,12 +13,13 @@ def display():
                            t = "K13_frontEnd",
                            msg = "Please type your username.")
 
-@app.route("/auth")
+@app.route("/auth", methods=["GET"])
 def authenticate():
+    print(request.method)
     return render_template("backEnd.html",
                            t = "K13_backEnd",
                            greet = "Hello, " + request.args['username'] + "!",
-                           method = "request.args")
+                           method = "GET")
 
 if __name__ == "__main__":
     app.debug = True
