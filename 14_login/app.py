@@ -6,28 +6,37 @@ app.secret_key = urandom(32)
 
 users = {"123":"qwer"}
 
-@app.route("/")
-def index():
-    if "username" is not in session.keys():
-        return redirect(url_for("login"))
-    return render_template("index.html", username=session["username"])
+print(app.secret_key)
 
-@app.route("/login", methods=["POST", "GET"])
-def login():
+@app.route("/", methods=["POST", "GET"])
+def index():
     if request.method == "GET":
-        return render_template("login.html");
+        return render_template("index.html", a = True)
     else:
-        if request.form.get("username") not is in users.keys():
-            return render_template("login.html", error = "User does not exist!")
-        elif users[request.form.get("username")] != request.form.get("password"):
-            return render_template("login.html", error = "Password is incorrect")
-        elif users[request.form.get("username")] == request.form.get("password"):
-            session["username"] = request.form.get("username")
-            return redirect(url_for("index"))
-        else:
-            return render_template("login.html", error = "Uh we screwed up")
+        usr = request.form.get("username")
+
+        if usr not in users.keys() or users[usr] != request.form.get("password"):
+            return redirect("/login")
+
+        elif users[usr] == request.form.get("password"):
+            session["username"] = usr
+            return render_template("index.html", a = False, username = usr)
+        
+        
+
+@app.route("/login", methods=["POST"])
+def login():
+    usr = request.form.get("username")
+    
+    if usr not in users.keys():
+        return render_template("error.html", msg = "Username not found.")
+    
+    elif users[usr] != request.form.get("password"):
+        return render_template("error.html", msg = "Incorrect password.")
+
+    else:
+        return render_template("error.html", msg = "Uh we screwed up")
 
 if __name__ == "__main__":
     app.debug = True
     app.run()
-        
