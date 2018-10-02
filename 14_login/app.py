@@ -1,4 +1,4 @@
-# William Lu
+# William Lu (I'm working solo because Jared didn't let me contribute)
 # SoftDev1 pd7
 # K14 -- Do I Know You?
 # 2018-10-02
