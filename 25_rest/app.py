@@ -16,9 +16,8 @@ URL = PRE + KEY
 def display():
     x = urllib.request.urlopen(URL)
     str = x.read()
-    d = json.loads(str)
-    print(d[0]['meta']['uuid'])
-    return render_template('demo.html')
+    list = json.loads(str)
+    return render_template('demo.html', l = list)
 
 if __name__ == '__main__':
     app.debug = True
