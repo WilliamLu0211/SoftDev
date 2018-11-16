@@ -48,6 +48,13 @@ def list():
     list = json.loads(x.read())
     return render_template('university.html', l = list)
 
+@app.route('/iss')
+def flex():
+    x = urllib.request.urlopen('http://api.open-notify.org/iss-now.json')
+    dict = json.loads(x.read())
+    # print(dict)
+    return render_template('iss.html', d = dict)
+
 
 if __name__ == '__main__':
     app.debug = True
