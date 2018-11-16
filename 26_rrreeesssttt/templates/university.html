@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>university demo</title>
+  </head>
+  <body>
+    <h2>Sample California University List:</h2>
+    {% for d in l %}
+      <table border="1">
+        <tr>
+          <td>Name</td> <td><a href="{{d['web_pages'][0]}}">{{d['name']}}</a></td>
+        </tr>
+        <tr>
+          <td>Country</td> <td>{{d['country']}}</td>
+        </tr>
+        <tr>
+          <td>State/Province</td> <td>{{d['state-province']}}</td>
+        </tr>
+      </table>
+      <br>
+    {% endfor %}
+  </body>
+</html>

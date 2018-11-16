@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>dictionary demo</title>
+  </head>
+  <body>
+    <h2>Sample Definitions from Merriam-Webster:</h2>
+    {% for word in l%}
+    <table border="1">
+      <tr>
+        <th>{{word}}</th><th>definitions</th>
+      </tr>
+      {% for d in l[word] %}
+        {% for def in d['shortdef']%}
+        <tr>
+          <td>{{d['meta']['id']}}</td> <td>{{def}}</td>
+        </tr>
+        {% endfor %}
+      {% endfor %}
+    </table>
+    <br>
+    {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>met museum demo</title>
+    <style>
+      img {
+        max-width:450px;
+        max-height:450px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Sample Definitions from The Metropolitan Museum of Art:</h2>
+    {% for obj in l %}
+      <table border="1">
+        <tr>
+          <td>Title</td> <td><a href="{{obj['objectURL']}}">{{obj['title']}}</a></td>
+        </tr>
+        <tr>
+          <td>Artist</td> <td>{{obj['artistDisplayName']}}</td>
+        </tr>
+        <tr>
+          <td>Department</td> <td>{{obj['department']}}</td>
+        </tr>
+        <tr>
+          <td>Priview</td> <td><img src="{{obj['primaryImage']}}"></td>
+        </tr>
+      </table>
+      <br>
+    {% endfor %}
+  </body>
+</html>
