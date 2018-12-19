@@ -1,4 +1,4 @@
-// William Lu
+// Generals - William Lu, Puneet Johal
 // SoftDev1 pd7
 // K28 -- Sequential Progression
 // 2018-12-19 W
