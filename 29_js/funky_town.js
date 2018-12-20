@@ -1,7 +1,7 @@
-// Generals - William Lu, Puneet Johal
+// NothingWorks - William Lu, Imad Belkebir
 // SoftDev1 pd7
-// K28 -- Sequential Progression
-// 2018-12-19 W
+// K29 -- Sequential Progression II: Electric Boogaloo
+// 2018-12-20 R
 
 var fibonacci = (n) => {
   if (!n)
@@ -21,8 +21,26 @@ var studentList = ["adayR", "aschJ", "belkebirI", "chenJ", "chowdhuryJ", "cwalin
 
 var randomStudent = () => {
   var index = parseInt(Math.random() * studentList.length);
+  // console.log(studentList[index]);
   return studentList[index];
 }
 
-var v1 = document.getElementById("1");
-v1.addEventListener("click", fibonacci(1));
+var printF = () => {
+  console.log(fibonacci(10));
+}
+
+var printG = () => {
+  console.log(gcd(12, 9));
+}
+
+var printR = () => {
+  console.log(randomStudent());
+}
+
+var v1 = document.getElementById("f");
+var v2 = document.getElementById("g");
+var v3 = document.getElementById("r");
+
+v1.addEventListener('click', printF);
+v2.addEventListener('click', printG);
+v3.addEventListener('click', printR);
