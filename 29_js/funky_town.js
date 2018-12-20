@@ -26,21 +26,30 @@ var randomStudent = () => {
 }
 
 var printF = () => {
-  console.log(fibonacci(10));
+  var x = document.getElementById("-f");
+  var val = fibonacci(10);
+  x.innerHTML = val;
+  console.log(val);
 }
 
 var printG = () => {
-  console.log(gcd(12, 9));
+  var x = document.getElementById("-g");
+  var val = gcd(12, 9);
+  x.innerHTML = val;
+  console.log(val);
 }
 
 var printR = () => {
-  console.log(randomStudent());
+  var x = document.getElementById("-r");
+  var val = randomStudent();
+  x.innerHTML = val;
+  console.log(val);
 }
 
-var v1 = document.getElementById("f");
-var v2 = document.getElementById("g");
-var v3 = document.getElementById("r");
+var f = document.getElementById("f");
+var g = document.getElementById("g");
+var r = document.getElementById("r");
 
-v1.addEventListener('click', printF);
-v2.addEventListener('click', printG);
-v3.addEventListener('click', printR);
+f.addEventListener('click', printF);
+g.addEventListener('click', printG);
+r.addEventListener('click', printR);
