@@ -17,25 +17,21 @@ var gcd = (a, b) => {
   return gcd(b, a % b); //reverses the order of a and b
 }
 
-var printF = () => {
-  var x = document.getElementById("-f");
-  var val = fibonacci(10);
-  x.innerHTML = val;
-  console.log(val);
-}
+var studentList = ["adayR", "aschJ", "belkebirI", "chenJ", "chowdhuryJ", "cwalinaP", "gondalA", "guptaS", "hasanA", "johalP", "keriazisD", "liK", "linJ", "linV", "liuA", "luW", "maiJ", "mohriC", "narangA", "ngR", "onishiR", "peciR", "petersT", "rachlevskyM", "wongT", "wuR", "yeJ", "zhangI", "zhaoM", "zhouQ"];
 
-var printG = () => {
-  var x = document.getElementById("-g");
-  var val = gcd(12, 9);
-  x.innerHTML = val;
-  console.log(val);
+var randomStudent = () => {
+  var index = parseInt(Math.random() * studentList.length);
+  // console.log(studentList[index]);
+  return studentList[index];
 }
 
 var h = document.getElementById("h");
 var thelist = document.getElementById("thelist");
 var fiblist = document.getElementById("fiblist");
+var studentlist = document.getElementById("studentlist");
 var b = document.getElementById("b");
 var fb = document.getElementById("fb");
+var sb = document.getElementById("sb");
 var li = document.getElementsByTagName("li");
 var hw = h.innerHTML;
 var ctr = 0;
@@ -68,6 +64,11 @@ fb.addEventListener('click', function(){
   var newElem = document.createElement("li");
   newElem.innerHTML = fibonacci(ctr);
   ctr ++;
-  // addFunc(newElem);
   fiblist.appendChild(newElem);
+})
+
+sb.addEventListener('click', function(){
+  var newElem = document.createElement("li");
+  newElem.innerHTML = randomStudent();
+  studentlist.appendChild(newElem);
 })
