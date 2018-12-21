@@ -1,7 +1,7 @@
-// NothingWorks - William Lu, Imad Belkebir
+// Generals - William Lu, Puneet Johal
 // SoftDev1 pd7
-// K29 -- Sequential Progression II: Electric Boogaloo
-// 2018-12-20 R
+// K30 -- Sequential Progression III: Season of the Witch
+// 2018-12-21 F
 
 var fibonacci = (n) => {
   if (!n)
@@ -37,12 +37,37 @@ var fiblist = document.getElementById("fiblist");
 var b = document.getElementById("b");
 var fb = document.getElementById("fb");
 var li = document.getElementsByTagName("li");
+var hw = h.innerHTML;
+var ctr = 0;
 
-// thelist.addEventListener('mouseover', function(){
-//   console.log(thelist);
-// })
-
-for (var i : li)
-  i.addEventListener('mouseover', function(){
-    h.innerHTML = i.innerHTML;
+var addFunc = (elem) => {
+  elem.addEventListener('mouseover', function(){
+    h.innerHTML = this.innerHTML;
   })
+
+  elem.addEventListener('mouseout', function(){
+    h.innerHTML = hw;
+  })
+
+  elem.addEventListener('click', function(){
+    this.remove();
+  })
+}
+
+for (i = 0; i < li.length; i ++)
+  addFunc(li[i]);
+
+b.addEventListener('click', function(){
+  var newElem = document.createElement("li");
+  newElem.innerHTML = "new item";
+  addFunc(newElem);
+  thelist.appendChild(newElem);
+})
+
+fb.addEventListener('click', function(){
+  var newElem = document.createElement("li");
+  newElem.innerHTML = fibonacci(ctr);
+  ctr ++;
+  // addFunc(newElem);
+  fiblist.appendChild(newElem);
+})
